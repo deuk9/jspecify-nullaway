@@ -9,7 +9,6 @@ import org.springframework.util.StringUtils;
 @Service
 @Slf4j
 @NullMarked
-//nullMarked 모든 argument 나 return은 null 이 아님.
 public class MemberService {
 
 
@@ -19,11 +18,11 @@ public class MemberService {
     }
 
     // null 이 아님을 알기 때문에 null 체크 시 warning 발생.
-    public String getMemberName(String test) {
-        return test != null ? test.toUpperCase() + "-hi" : "";
+    public String getMemberName(String str) {
+        return str != null ? str.toUpperCase() + "-hi" : "";
     }
 
-    public @Nullable String getMemberName2(@Nullable String test) {
-        return test != null ? test : "";
+    public @Nullable String getMemberName2(@Nullable String str) {
+        return str != null ? str.toUpperCase() + "-hi" : "";
     }
 }
