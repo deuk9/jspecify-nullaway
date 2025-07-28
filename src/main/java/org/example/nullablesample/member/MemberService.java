@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.jspecify.annotations.NullMarked;
 import org.jspecify.annotations.Nullable;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 @Service
 @Slf4j
@@ -17,9 +18,9 @@ public class MemberService {
         log.info("registerRequest: {}", registerRequest);
     }
 
-    // null 이 아님을 알기 때문에 null 체크 시 애러 발생.
+    // null 이 아님을 알기 때문에 null 체크 시 warning 발생.
     public String getMemberName(String test) {
-        return test != null && !test.isBlank() ? test + "-hi" : "";
+        return test != null ? test.toUpperCase() + "-hi" : "";
     }
 
     public @Nullable String getMemberName2(@Nullable String test) {
