@@ -26,10 +26,15 @@ public class MemberController {
     @GetMapping
     public void getMember() {
         String test = memberService.getMemberName("test");
+
         // null 이 아님을 알기 때문에 warning 발생.
         if (test == null) {
-
         }
+
+        String memberName2 = memberService.getMemberName2(null);
+
+        //return 값이 null 일수 있기 때문에 null 체크를 하지 않으면 warning
+        memberName2.length();
     }
 
 }
